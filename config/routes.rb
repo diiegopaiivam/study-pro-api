@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users,
         path: "api/v1/auth",
         defaults: { format: :json },
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
         only: [:registrations, :sessions]
   namespace :api do
     namespace :v1 do
-
+      get 'auth/me', :to => 'me#show'
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
