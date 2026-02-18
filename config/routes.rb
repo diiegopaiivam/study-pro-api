@@ -17,6 +17,15 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'auth/me', :to => 'me#show'
+      resources :subjects do
+        resources :themes, only: [:index, :create, :destroy]
+      end
+
+      resources :themes, only: [] do
+        resources :sessions, only: [:create], controller: "study_sessions"
+      end
+
+      get "stats", to: "stats#show"
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

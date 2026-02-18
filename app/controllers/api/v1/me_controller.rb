@@ -1,7 +1,7 @@
 module Api
   module V1
     class MeController < BaseController
-      before_action :authenticate_user!
+      
       def show
         render json: {
           id: current_user.id,
