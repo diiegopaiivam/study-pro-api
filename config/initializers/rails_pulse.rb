@@ -161,6 +161,7 @@ RailsPulse.configure do |config|
   # config.authentication_method = proc {
   #   warden.authenticate!(:scope => :admin)
   # }
+  #
 
   # Example 4: Basic HTTP authentication
    config.authentication_method = proc {
