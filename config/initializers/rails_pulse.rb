@@ -136,10 +136,10 @@ RailsPulse.configure do |config|
   # Uncomment and configure one of the following patterns based on your authentication system:
 
   # Enable/disable authentication (enabled by default in production)
-  config.authentication_enabled = Rails.env.production?
+  config.authentication_enabled = true
 
   # Where to redirect unauthorized users
-  # config.authentication_redirect_path = "/"
+  #config.authentication_redirect_path = "/login"
 
   # Custom authentication method - choose one of the examples below:
 
@@ -164,11 +164,11 @@ RailsPulse.configure do |config|
   #
 
   # Example 4: Basic HTTP authentication
-   config.authentication_method = proc {
-     authenticate_or_request_with_http_basic do |username, password|
-       username == ENV['RAILS_PULSE_USERNAME'] && password == ENV['RAILS_PULSE_PASSWORD']
-     end
-   }
+ config.authentication_method = proc {
+   authenticate_or_request_with_http_basic do |username, password|
+     username == ENV['RAILS_PULSE_USERNAME'] && password == ENV['RAILS_PULSE_PASSWORD']
+   end
+ }
 
   # Example 5: Custom authorization check
   # config.authentication_method = proc {
