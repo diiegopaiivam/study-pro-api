@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  mount RailsPulse::Engine => "/rails_pulse"
   devise_for :users,
         path: "api/v1/auth",
         defaults: { format: :json },

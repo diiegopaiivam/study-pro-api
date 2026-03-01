@@ -17,6 +17,7 @@ gem "pundit"
 gem "kaminari"
 gem "rack-cors"
 
+gem 'rails_pulse'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
