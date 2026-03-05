@@ -26,11 +26,18 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          platforms: linux/arm64
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/study_tracker_api:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: 🔐 Trivy Scan (Image)
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/study_tracker_api
+          format: table
+          exit-code: 0
+          severity: HIGH,CRITICAL
 
       - name: Deploy na VM
         uses: appleboy/ssh-action@v1
